@@ -1,20 +1,12 @@
-const faker = require("faker");
+const jsonServer = require("json-server");
+const path = require("path");
 
-const generateEmployees = () => {
-  let employees = [];
+const server = jsonServer.create();
+const router = jsonServer.router(path.join(__dirname, "db.json"));
+const middlewares = jsonServer.defaults();
+const port = process.env.PORT || 3000;
 
-  for (let id = 1; id <= 10; id++) {
-    let firstName = faker.name.findName();
-    let lastName = faker.name.lastName();
-    let email = faker.internet.email();
+server.use(middlewares);
+server.use(router);
 
-    employees.push({
-      id: id,
-      first_name: firstName,
-      last_name: lastName,
-      email: email,
-    });
-  }
-  return { employees: employees };
-};
-module.exports = generateEmployees;
+server.listen(port);
