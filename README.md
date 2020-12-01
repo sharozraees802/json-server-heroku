@@ -73,15 +73,25 @@ heroku login
 heroku create my-cool-project
 ```
 
+```bash
 6 . heroku git:clone -a my-cool-project
+```
 
+```bash
 7 . git add .
+```
 
+```bash
 8 . git commit -am "make it better"
+```
 
+```bash
 9 . create a Procfile
+```
 
+```bash
 10 . open Procfiel write web : node server.js or web : node index.js
+```
 
 11 . Push your app to **Heroku** (you will see a wall of code)
 
